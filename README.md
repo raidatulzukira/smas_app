@@ -1,58 +1,359 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<div align="center">
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# 📦 SMAS — Sistem Manajemen Aset
 
-## About Laravel
+**Aplikasi web berbasis Laravel untuk pengelolaan aset dan inventaris secara terpusat, efisien, dan aman.**
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+![Laravel](https://img.shields.io/badge/Laravel-13.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP-8.3+-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.x-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Alpine.js](https://img.shields.io/badge/Alpine.js-3.x-8BC0D0?style=for-the-badge&logo=alpinedotjs&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+</div>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 📋 Daftar Isi
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- [Tentang Proyek](#-tentang-proyek)
+- [Fitur Utama](#-fitur-utama)
+- [Teknologi yang Digunakan](#-teknologi-yang-digunakan)
+- [Persyaratan Sistem](#-persyaratan-sistem)
+- [Instalasi](#-instalasi)
+- [Konfigurasi Database](#️-konfigurasi-database)
+- [Menjalankan Aplikasi](#-menjalankan-aplikasi)
+- [Akun Default](#-akun-default)
+- [Struktur Proyek](#-struktur-proyek)
+- [Menjalankan Testing](#-menjalankan-testing)
+- [Kontribusi](#-kontribusi)
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## 📖 Tentang Proyek
 
-## Agentic Development
+**SMAS (Sistem Manajemen Aset)** adalah aplikasi berbasis web yang dibangun menggunakan framework **Laravel 13** untuk membantu organisasi dalam mengelola aset dan inventaris mereka. Sistem ini menyediakan antarmuka yang bersih dan responsif untuk memantau, mencatat, dan mengelola data aset mulai dari pengadaan hingga penghapusan.
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+---
+
+## ✨ Fitur Utama
+
+| Fitur | Deskripsi |
+|---|---|
+| 🔐 **Autentikasi** | Login, Register, dan manajemen sesi menggunakan Laravel Breeze |
+| 👤 **Role-Based Access** | Pemisahan hak akses berdasarkan level pengguna (`admin`) |
+| 📦 **Manajemen Barang** | CRUD lengkap untuk data aset/item beserta kode, stok, merek, harga, dan gambar |
+| 🗂️ **Manajemen Kategori** | Pengelompokan aset berdasarkan kategori |
+| 🗑️ **Soft Delete** | Penghapusan data barang dan kategori yang aman (data tidak hilang permanen) |
+| 👤 **Manajemen Profil** | Edit data profil pengguna yang sedang login |
+| 📱 **Responsive UI** | Tampilan yang adaptif menggunakan Tailwind CSS |
+
+---
+
+## 🛠 Teknologi yang Digunakan
+
+- **[Laravel 13](https://laravel.com/)** — PHP Framework utama
+- **[PHP 8.3+](https://www.php.net/)** — Bahasa pemrograman server-side
+- **[Laravel Breeze](https://laravel.com/docs/starter-kits#laravel-breeze)** — Starter kit autentikasi
+- **[Tailwind CSS v3](https://tailwindcss.com/)** — Framework CSS utility-first
+- **[Alpine.js v3](https://alpinejs.dev/)** — Framework JavaScript ringan
+- **[Vite](https://vitejs.dev/)** — Bundler aset frontend
+- **[MySQL / SQLite](https://www.mysql.com/)** — Database
+- **[Pest PHP](https://pestphp.com/)** — Framework pengujian
+
+---
+
+## ⚙️ Persyaratan Sistem
+
+Pastikan sistem Anda telah memenuhi persyaratan berikut sebelum melakukan instalasi:
+
+| Kebutuhan | Versi Minimum |
+|---|---|
+| PHP | `^8.3` |
+| Composer | `^2.x` |
+| Node.js | `^18.x` atau lebih baru |
+| NPM | `^9.x` atau lebih baru |
+| MySQL | `^8.0` (atau SQLite) |
+| Git | versi terbaru |
+
+---
+
+## 🚀 Instalasi
+
+Ikuti langkah-langkah berikut secara berurutan untuk menjalankan proyek ini di lingkungan lokal Anda.
+
+### 1. Clone Repository
+
+Clone repositori ini ke direktori lokal Anda menggunakan Git:
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone https://github.com/raidatulzukira/smas_app.git
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+Masuk ke direktori proyek:
 
-## Contributing
+```bash
+cd smas_app
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+### 2. Install Dependensi PHP (Composer)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Jalankan perintah berikut untuk mengunduh dan menginstal seluruh paket PHP yang dibutuhkan:
 
-## Security Vulnerabilities
+```bash
+composer install
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+> 💡 Proses ini akan membaca file `composer.json` dan mengunduh semua library yang diperlukan ke folder `vendor/`.
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 3. Salin File Konfigurasi Environment
+
+Buat file `.env` dengan menyalin dari file contoh yang sudah tersedia:
+
+```bash
+cp .env.example .env
+```
+
+> ⚠️ File `.env` berisi konfigurasi sensitif (database, kunci aplikasi, dll.) dan **tidak** boleh di-commit ke repositori.
+
+---
+
+### 4. Generate Application Key
+
+Buat kunci enkripsi unik untuk aplikasi Anda:
+
+```bash
+php artisan key:generate
+```
+
+Perintah ini akan mengisi nilai `APP_KEY` di file `.env` secara otomatis. Kunci ini digunakan Laravel untuk enkripsi session dan data lainnya.
+
+---
+
+### 5. Konfigurasi Database
+
+Buka file `.env` dan sesuaikan pengaturan database dengan konfigurasi lokal Anda:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=smas_db
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+> **Menggunakan SQLite (opsional, lebih mudah untuk development):**
+>
+> ```env
+> DB_CONNECTION=sqlite
+> ```
+> Kemudian buat file database-nya:
+> ```bash
+> touch database/database.sqlite
+> ```
+
+Pastikan database `smas_db` sudah dibuat di MySQL Anda sebelum lanjut ke langkah berikutnya:
+
+```sql
+CREATE DATABASE smas_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+
+---
+
+### 6. Jalankan Migrasi Database
+
+Buat seluruh tabel yang dibutuhkan aplikasi dengan menjalankan migrasi:
+
+```bash
+php artisan migrate
+```
+
+Perintah ini akan membuat tabel-tabel berikut secara otomatis:
+- `users` — Data pengguna dan level akses
+- `categories` — Data kategori aset
+- `items` — Data aset/barang
+- `cache`, `jobs`, `sessions` — Tabel sistem Laravel
+
+---
+
+### 7. Jalankan Database Seeder (Opsional)
+
+Isi database dengan data awal (termasuk akun admin default):
+
+```bash
+php artisan db:seed
+```
+
+> Lihat bagian [Akun Default](#-akun-default) untuk informasi akun yang dibuat oleh seeder.
+
+---
+
+### 8. Install Dependensi JavaScript (NPM)
+
+Unduh seluruh paket frontend yang diperlukan:
+
+```bash
+npm install
+```
+
+---
+
+### 9. Build Aset Frontend
+
+Kompilasi aset CSS dan JavaScript untuk production:
+
+```bash
+npm run build
+```
+
+Atau untuk development dengan hot-reload:
+
+```bash
+npm run dev
+```
+
+---
+
+### 10. Buat Symbolic Link Storage (Opsional)
+
+Jika aplikasi mengelola upload file/gambar, jalankan:
+
+```bash
+php artisan storage:link
+```
+
+---
+
+## ▶️ Menjalankan Aplikasi
+
+Setelah semua langkah instalasi selesai, jalankan server development Laravel:
+
+```bash
+php artisan serve
+```
+
+Buka browser Anda dan akses aplikasi di:
+
+```
+http://127.0.0.1:8000
+```
+
+### Menjalankan Semua Sekaligus (Development)
+
+Anda juga dapat menjalankan server Laravel, queue, dan Vite secara bersamaan dengan satu perintah:
+
+```bash
+composer run dev
+```
+
+---
+
+## 🔑 Akun Default
+
+Setelah menjalankan `php artisan db:seed`, akun berikut akan tersedia untuk login:
+
+| Field | Value |
+|---|---|
+| **Nama** | Test User |
+| **Email** | `test@example.com` |
+| **Password** | `password` |
+| **Level** | `admin` |
+
+> ⚠️ **Penting:** Segera ganti password akun default ini setelah login pertama kali, terutama di lingkungan production.
+
+### URL Dashboard Admin
+
+Setelah login sebagai admin, akses panel administrasi di:
+
+```
+http://127.0.0.1:8000/admin/dashboard
+```
+
+---
+
+## 📁 Struktur Proyek
+
+```
+smas_app/
+│
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/
+│   │   │   ├── Admin/              # Controller khusus admin
+│   │   │   ├── CategoryController.php
+│   │   │   ├── ItemController.php
+│   │   │   └── ProfileController.php
+│   │   └── Middleware/             # Middleware (termasuk checklevel)
+│   ├── Models/
+│   │   ├── Category.php            # Model Kategori
+│   │   ├── Item.php                # Model Barang/Aset
+│   │   └── User.php                # Model Pengguna
+│   ├── Providers/
+│   └── Services/
+│
+├── database/
+│   ├── migrations/                 # File migrasi database
+│   └── seeders/
+│       └── DatabaseSeeder.php      # Seeder akun admin default
+│
+├── resources/
+│   ├── css/                        # File CSS (Tailwind)
+│   ├── js/                         # File JavaScript (Alpine.js)
+│   └── views/                      # Template Blade
+│
+├── routes/
+│   ├── web.php                     # Definisi route aplikasi
+│   └── auth.php                    # Route autentikasi (Breeze)
+│
+├── .env.example                    # Template konfigurasi environment
+├── composer.json                   # Dependensi PHP
+├── package.json                    # Dependensi JavaScript
+└── vite.config.js                  # Konfigurasi Vite
+```
+
+---
+
+## 🧪 Menjalankan Testing
+
+Proyek ini menggunakan **Pest PHP** sebagai framework pengujian. Jalankan seluruh test suite dengan perintah:
+
+```bash
+php artisan test
+```
+
+Atau menggunakan Composer:
+
+```bash
+composer run test
+```
+
+---
+
+## 🤝 Kontribusi
+
+Kontribusi sangat diterima dengan tangan terbuka! Untuk berkontribusi:
+
+1. **Fork** repositori ini
+2. Buat branch fitur baru: `git checkout -b fitur/nama-fitur`
+3. Commit perubahan Anda: `git commit -m 'Menambahkan fitur X'`
+4. Push ke branch: `git push origin fitur/nama-fitur`
+5. Buka **Pull Request**
+
+---
+
+## 📄 Lisensi
+
+Proyek ini dilisensikan di bawah [MIT License](https://opensource.org/licenses/MIT).
+
+---
+
+<div align="center">
+
+Dibuat dengan ❤️ menggunakan [Laravel](https://laravel.com)
+
+</div>
